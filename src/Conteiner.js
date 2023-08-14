@@ -3,20 +3,13 @@ import Presentacional from "./Presentacional"
 function Conteiner(){
     //Estados
     const [data, setdata] = useState([])
+    //Efectos
     useEffect(()=>{
          getProductos()
         }, [])
-    //Efectos
+    //Acciones
     const getProductos =()=>{
-       /*console.log("Arranca el pedido a la api")
-        setTimeout(()=>{
-            console.log("terminoo el pedido")
-            let data = [{id:1, nombre: "Horacio" } ,{id:2, nombre: "Juan"}]
-            setdata(data)
-    
-        },3000)*/
-
-    /*const nueva_promesa =new Promise(()=> {})*/
+  
     const resultado_del_fetch = fetch('https://fakestoreapi.com/products')
     .then(res => res.json())
     .then(json => setdata(json))
@@ -25,6 +18,7 @@ function Conteiner(){
         
 
     }
+    //Vista
     return(
         <Presentacional data={data}/>
        
@@ -50,12 +44,6 @@ function Conteiner(){
 
    
 }
-
-
-
-
-
-
 
 
 export default Conteiner
